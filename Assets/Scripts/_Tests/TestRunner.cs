@@ -2,7 +2,7 @@
 
 namespace UnityGame.Tests
 {
-    class TestRunner
+    public class TestRunner
     {
         public void Run()
         {
@@ -15,12 +15,8 @@ namespace UnityGame.Tests
             //var chainOfResponsabilityTest = new ChainOfResponsability.Tester();
             //chainOfResponsabilityTest.Test();
 
-            RunUnitTests();
-        }
-
-        private void RunUnitTests()
-        {
-
+            var memento = new Memento.Tester();
+            memento.Test();
         }
     }
 }

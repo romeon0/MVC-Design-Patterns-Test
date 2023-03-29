@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UnityGame.MVC
 {
-    public class UnitController : MonoBehaviour, IController
+    public class UnitController : MonoBehaviour
     {
         [SerializeField] private EntityDefinition _playerDefinition;
         private GameplayModel _model;

@@ -11,7 +11,7 @@ namespace UnityGame.MVC
     }
 
     [Serializable]
-    public class InventoryModel
+    public class InventoryModel : IModel
     {
         public List<InventoryItem> items = new List<InventoryItem>();
     }

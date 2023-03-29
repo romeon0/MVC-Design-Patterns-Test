@@ -10,6 +10,11 @@ namespace UnityGame.MVC
         public Action<InventoryItem> ItemEquipped;
         public Action<InventoryItem> ItemUnequipped;
 
+        public void SetModel(InventoryModel model)
+        {
+            _inventory = model;
+        }
+
         public void EquipItem(string id)
         {
             InventoryItem item = _inventory.items.Find(e => e.id == id);
