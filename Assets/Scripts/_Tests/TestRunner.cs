@@ -17,6 +17,9 @@ namespace UnityGame.Tests
 
             var memento = new Memento.Tester();
             memento.Test();
+
+            var iterator = new IteratorDesignPattern.Tester();
+            iterator.Test();
         }
     }
 }
