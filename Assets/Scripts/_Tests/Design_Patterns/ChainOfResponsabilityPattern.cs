@@ -2,7 +2,7 @@
 
 namespace UnityGame.Tests.DesignPatterns
 {
-    class ChainOfResponsability
+    class ChainOfResponsabilityPattern
     {
         private interface IHandler
         {
@@ -52,7 +52,7 @@ namespace UnityGame.Tests.DesignPatterns
             {
                 if(message is LoginMessage)
                 {
-                    Debug.Log($"[Chain] Message handled. MsgType:{message.GetType().Name}; HandlerType:{GetType().Name}");
+                    Debug.Log($"[ChainOfResponsability] Message handled. MsgType:{message.GetType().Name}; HandlerType:{GetType().Name}");
                     return true;
                 }
                 return false;
@@ -66,7 +66,7 @@ namespace UnityGame.Tests.DesignPatterns
             {
                 if (message is RegisterMessage)
                 {
-                    Debug.Log($"[Chain] Message handled. MsgType:{message.GetType().Name}; HandlerType:{GetType().Name}");
+                    Debug.Log($"[ChainOfResponsability] Message handled. MsgType:{message.GetType().Name}; HandlerType:{GetType().Name}");
                     return true;
                 }
                 return false;
@@ -83,7 +83,7 @@ namespace UnityGame.Tests.DesignPatterns
                     return true;
                 }
 
-                Debug.Log($"[Chain] Message handled by Default Handler. " +
+                Debug.Log($"[ChainOfResponsability] Message handled by Default Handler. " +
                     $"MsgType:{message.GetType().Name}; HandlerType:{GetType().Name}");
                 return false;
             }

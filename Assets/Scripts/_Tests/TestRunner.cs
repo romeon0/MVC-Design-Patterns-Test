@@ -6,19 +6,22 @@ namespace UnityGame.Tests
     {
         public void Run()
         {
-            //var observerTest = new ObserverPattern.Tester();
-            //observerTest.Test();
+            var observer = new ObserverPattern.Tester();
+            observer.Test();
 
-            //var publishSubscribeTest = new PublishSubscribe.Tester();
-            //publishSubscribeTest.Test();
+            var publishSubscribe = new PublishSubscribePattern.Tester();
+            publishSubscribe.Test();
 
-            //var chainOfResponsabilityTest = new ChainOfResponsability.Tester();
-            //chainOfResponsabilityTest.Test();
+            var chainOfResponsability = new ChainOfResponsabilityPattern.Tester();
+            chainOfResponsability.Test();
 
-            var memento = new Memento.Tester();
+            var bridge = new BridgePattern.Tester();
+            bridge.Test();
+
+            var memento = new MementoPattern.Tester();
             memento.Test();
 
-            var iterator = new IteratorDesignPattern.Tester();
+            var iterator = new IteratorPattern.Tester();
             iterator.Test();
         }
     }

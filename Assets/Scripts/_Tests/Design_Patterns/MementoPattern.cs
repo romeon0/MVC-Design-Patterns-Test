@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UnityGame.Tests.DesignPatterns
 {
-    class Memento
+    class MementoPattern
     {
         private interface ISnapshot
         {

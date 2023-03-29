@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace UnityGame.Tests.DesignPatterns
 {
-    class PublishSubscribe
+    class PublishSubscribePattern
     {
         private interface IMessage
         {
@@ -106,7 +106,7 @@ namespace UnityGame.Tests.DesignPatterns
 
                         };
 
-                        Debug.Log($"[Sender] Sent message. PublisherId:{_publisher.Id}; MessageId: {messageId}");
+                        Debug.Log($"[PublishSubscribe][Sender] Sent message. PublisherId:{_publisher.Id}; MessageId: {messageId}");
                         _publisher.Publish(message);
 
                         ++messageId;
@@ -144,7 +144,7 @@ namespace UnityGame.Tests.DesignPatterns
                         message = _broker.FetchMessage();
                         if (message != null)
                         {
-                            Debug.Log($"[Consumer] Received message. PublishedId:{message.publisherId}; MessageId: {message.messageId}");
+                            Debug.Log($"[PublishSubscribe][Consumer] Received message. PublishedId:{message.publisherId}; MessageId: {message.messageId}");
                         }
                     } while (message != null);
 

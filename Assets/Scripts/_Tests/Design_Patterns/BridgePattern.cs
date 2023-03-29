@@ -2,7 +2,7 @@
 
 namespace UnityGame.Tests.DesignPatterns
 {
-    class Bridge
+    class BridgePattern
     {
         private interface IOperationSystem
         {
@@ -11,12 +11,12 @@ namespace UnityGame.Tests.DesignPatterns
 
         private class AndroidOS : IOperationSystem
         {
-            public void RunApp(string identifier) { Debug.Log("RunApp called for iOS"); }
+            public void RunApp(string identifier) { Debug.Log("[Bridge] RunApp called for iOS"); }
         }
 
         private class iOS : IOperationSystem
         {
-            public void RunApp(string identifier) { Debug.Log("RunApp called for Android"); }
+            public void RunApp(string identifier) { Debug.Log("[Bridge] RunApp called for Android"); }
         }
 
         private class OperationSystemController

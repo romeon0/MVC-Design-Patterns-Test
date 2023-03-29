@@ -37,7 +37,8 @@ namespace UnityGame.Tests.DesignPatterns
 
             public void Publish(Message message)
             {
-                foreach(var subscriber in _subscribers)
+                Debug.Log($"[Observer][Subject] Sent message. MessageId: {message.id}");
+                foreach (var subscriber in _subscribers)
                 {
                     subscriber.Handle(message);
                 }
@@ -54,7 +55,7 @@ namespace UnityGame.Tests.DesignPatterns
 
             public void Handle(Message message)
             {
-                Debug.Log($"[rrr] Received message. ObserverId:{_id}; MessageId: {message.id}");
+                Debug.Log($"[Observer][Observer] Received message. ObserverId:{_id}; MessageId: {message.id}");
             }
         }
 

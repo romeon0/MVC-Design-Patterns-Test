@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UnityGame.Tests.DesignPatterns
 {
-    class IteratorDesignPattern
+    class IteratorPattern
     {
         private interface IElement
         {
