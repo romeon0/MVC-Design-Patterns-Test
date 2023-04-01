@@ -9,7 +9,7 @@
   * Observer Pattern (Receive notifications when some value changed(synchronous))
   * Chain of Responsability Pattern (Send requests along of a list o children. Each children will decide to process it or not)
   * Iterator Pattern (Traverse elements without exposing the collection type)
-  * Memento Pattern
+  * Memento Pattern (Load and Save the object's state)
 3. Unit Tests: 
   https://github.com/romeon0/MVC-Design-Patterns-Test/tree/main/Assets/UnitTests
  * Unity Test Runner
