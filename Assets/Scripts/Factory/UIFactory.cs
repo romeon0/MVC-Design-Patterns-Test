@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace UnityGame.MVC
 {
-    class UIFactory : MonoBehaviour
+    class UIFactory : MonoBehaviour, IValueGetter<IView>, IValueGetter<IController>
     {
         [SerializeField] private Transform _spawnedObjectsContainer;
         private IObjectStorage<IView> _viewStorage;
@@ -32,37 +32,19 @@ namespace UnityGame.MVC
 
         private void InjectReferences(UIScreen screen)
         {
-            List<FieldInfo> views = GetFieldsOfType<IView>(screen);
-            foreach (var field in views)
-            {
-                IView view = _viewStorage.GetValue(field.FieldType);
-                field.SetValue(screen, view);
-                Debug.Log($"[UIFactory] Injected View. Field:{field.Name}; View:{view.GetType()}");
-            }
-
-            List<FieldInfo> controllers = GetFieldsOfType<IController>(screen);
-            foreach (var field in controllers)
-            {
-                IController controller = _controllerStorage.GetValue(field.FieldType);
-                field.SetValue(screen, controller);
-                Debug.Log($"[UIFactory] Injected Controller. Field:{field.Name}; Controller:{controller.GetType()}");
-            }
+            FieldInjector injector = new FieldInjector();
+            injector.InjectReferences<IView>(screen, this);
+            injector.InjectReferences<IController>(screen, this);
         }
 
-        private List<FieldInfo> GetFieldsOfType<T>(object obj)
+        IController IValueGetter<IController>.GetValue(Type type)
         {
-            List<FieldInfo> result = new List<FieldInfo>();
-            Type neededFieldType = typeof(T);
-            Type objectType = obj.GetType();
-            foreach (FieldInfo field in objectType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic))
-            {
-                bool isValid = field.FieldType == neededFieldType || neededFieldType.IsAssignableFrom(field.FieldType);
-                if (isValid)
-                {
-                    result.Add(field);
-                }
-            }
-            return result;
+            return _controllerStorage.GetValue(type);
+        }
+
+        IView IValueGetter<IView>.GetValue(Type type)
+        {
+            return _viewStorage.GetValue(type);
         }
     }
 }
